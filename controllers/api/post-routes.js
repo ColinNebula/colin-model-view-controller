@@ -2,11 +2,10 @@ const router = require('express').Router();
 const sequelize = require('../../config/connection');
 const { Post, User, Vote, Comment } = require('../../models');
 
-// get all posts
+// get all users
 router.get('/', (req, res) => {
   console.log('======================');
   Post.findAll({
-    order: [['created_at', 'DESC']],
     attributes: [
       'id',
       'post_url',
@@ -15,7 +14,6 @@ router.get('/', (req, res) => {
       [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
     ],
     include: [
-      // include the Comment model here:
       {
         model: Comment,
         attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
@@ -29,7 +27,7 @@ router.get('/', (req, res) => {
         attributes: ['username']
       }
     ]
-   })
+  })
     .then(dbPostData => res.json(dbPostData))
     .catch(err => {
       console.log(err);
@@ -37,7 +35,6 @@ router.get('/', (req, res) => {
     });
 });
 
-// Find a post by Id
 router.get('/:id', (req, res) => {
   Post.findOne({
     where: {
@@ -77,12 +74,12 @@ router.get('/:id', (req, res) => {
       res.status(500).json(err);
     });
 });
-// Create a Post
+
 router.post('/', (req, res) => {
   Post.create({
     title: req.body.title,
     post_url: req.body.post_url,
-    user_id: req.body.user_id
+    user_id: req.session.user_id
   })
     .then(dbPostData => res.json(dbPostData))
     .catch(err => {
@@ -90,18 +87,17 @@ router.post('/', (req, res) => {
       res.status(500).json(err);
     });
 });
-// Update a post
+
 router.put('/upvote', (req, res) => {
   // custom static method created in models/Post.js
-  Post.upvote(req.body, { Vote })
-    .then(updatedPostData => res.json(updatedPostData))
+  Post.upvote({ ...req.body, user_id: req.session.user_id }, { Vote, Comment, User })
+    .then(updatedVoteData => res.json(updatedVoteData))
     .catch(err => {
       console.log(err);
-      res.status(400).json(err);
+      res.status(500).json(err);
     });
 });
 
-// Update a post by id
 router.put('/:id', (req, res) => {
   Post.update(
     {
@@ -126,8 +122,8 @@ router.put('/:id', (req, res) => {
     });
 });
 
-// Delete a post
 router.delete('/:id', (req, res) => {
+  console.log('id', req.params.id);
   Post.destroy({
     where: {
       id: req.params.id

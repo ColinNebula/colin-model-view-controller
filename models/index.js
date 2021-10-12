@@ -1,16 +1,8 @@
 const User = require('./User');
 //Import the model Post
 const Post = require("./Post");
-<<<<<<< HEAD
-//Import the Vote
-const Vote = require('./Vote');
-//Import the Comment
-const Comment = require('./Comment');
-
-=======
 // Import Vote
 const Vote = require('./Vote');
->>>>>>> feature/post
 
 // create associations
 User.hasMany(Post, { as: 'post',
@@ -92,8 +84,4 @@ Post.hasMany(Comment, {
   });
 
 //Export the user and post
-<<<<<<< HEAD
-module.exports = { User, Post, Vote, Comment };
-=======
 module.exports = { User, Post, Vote };
->>>>>>> feature/post

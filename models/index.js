@@ -6,7 +6,12 @@ const Vote = require('./Vote');
 //Import the Comment
 const Comment = require('./Comment');
 
-// create associations/ // User Section
+
+// create associations
+User.hasMany(Post, { as: 'post',
+  foreignKey: 'user_id'
+});
+
 User.belongsToMany(Post, {
   through: Vote,
   as: 'voted_posts',

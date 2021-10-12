@@ -1,9 +1,14 @@
 const router = require('express').Router();
+<<<<<<< HEAD:controllers/api/user-routes.js
 const { User, Post, Comment, Vote } = require('../../models');
+=======
+const { User, Post, Vote } = require('../../models');
+>>>>>>> feature/post:routes/api/user-routes.js
 
 
 // get all users
 router.get('/', (req, res) => {
+<<<<<<< HEAD:controllers/api/user-routes.js
   User.findAll({
     attributes: { exclude: ['password'] }
   })
@@ -12,6 +17,29 @@ router.get('/', (req, res) => {
       console.log(err);
       res.status(500).json(err);
     });
+=======
+  include: [
+    {
+      model: Post,
+      attributes: ['id', 'title', 'post_url', 'created_at']
+    },
+    {
+      model: Post,
+      attributes: ['title'],
+      through: Vote,
+      as: 'voted_posts'
+    }
+  ]
+    // Access our User model and run .findAll() method)
+    User.findAll({
+      attributes: { exclude: ['password'] }
+    })
+      .then(dbUserData => res.json(dbUserData))
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+>>>>>>> feature/post:routes/api/user-routes.js
 });
 
 // Find a user by id

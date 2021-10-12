@@ -6,7 +6,7 @@ const withAuth = require('../utils/auth');
 // get all posts for dashboard
 router.get('/', withAuth, (req, res) => {
     res.render('dashboard', { loggedIn: true });
-    console.log(req.session);
+    
     console.log('======================');
     Post.findAll({
         where: {

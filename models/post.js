@@ -4,9 +4,6 @@ const sequelize = require('../config/connection');
 // post class Extends
 class Post extends Model {
     static upvote(body, models) {
-<<<<<<< HEAD
-
-=======
         return models.Vote.create({
             user_id: body.user_id,
             post_id: body.post_id
@@ -27,7 +24,6 @@ class Post extends Model {
                 ]
             });
         });
->>>>>>> feature/post
     }
 }
 // create fields/columns for Post model

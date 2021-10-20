@@ -1,22 +1,8 @@
 const router = require('express').Router();
-<<<<<<< HEAD
-const { User, Post, Comment, Vote } = require('../../models');
-=======
-const { User, Post, Vote } = require('../../models');
->>>>>>> feature/post
+const { User, Post, Vote, Comment} = require('../../models');
 
 // get all users
 router.get('/', (req, res) => {
-<<<<<<< HEAD
-  User.findAll({
-    attributes: { exclude: ['password'] }
-  })
-    .then(dbUserData => res.json(dbUserData))
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
-=======
   include: [
     {
       model: Post,
@@ -31,14 +17,19 @@ router.get('/', (req, res) => {
   ]
     // Access our User model and run .findAll() method)
     User.findAll({
-      attributes: { exclude: ['password'] }
+      attributes: [
+        'id',
+        'post_url',
+        'title',
+        'created_at',
+        [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
+      ],
     })
       .then(dbUserData => res.json(dbUserData))
       .catch(err => {
         console.log(err);
         res.status(500).json(err);
       });
->>>>>>> feature/post
 });
 
 // Find a user by id
@@ -51,7 +42,9 @@ router.get('/:id', (req, res) => {
     include: [
       {
         model: Post,
-        attributes: ['id', 'title', 'post_url', 'created_at']
+        attributes: ['id', 'title', 'post_url', 'created_at'],
+        through: Vote,
+        as: 'voted_posts'
       },
       {
         model: Comment,
@@ -60,6 +53,7 @@ router.get('/:id', (req, res) => {
           model: Post,
           attributes: ['title']
         }
+        
       },
       {
         model: Post,
@@ -125,9 +119,6 @@ router.post('/login', (req, res) => {
 
 //Update a user
 router.put('/:id', (req, res) => {
-  // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
-
-  // pass in req.body instead to only update what's passed through
   User.update(req.body, {
     individualHooks: true,
     where: {

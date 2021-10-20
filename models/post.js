@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-<<<<<<< HEAD
+
 // post class Extention
 class Post extends Model {
     static upvote(body, models) {
@@ -9,10 +9,6 @@ class Post extends Model {
 // post class Extends
 class Post extends Model {
     static upvote(body, models) {
-<<<<<<< HEAD
-
-=======
->>>>>>> develop
         return models.Vote.create({
             user_id: body.user_id,
             post_id: body.post_id
@@ -33,10 +29,7 @@ class Post extends Model {
                 ]
             });
         });
-<<<<<<< HEAD
-=======
->>>>>>> feature/post
->>>>>>> develop
+
     }
 }
 // create fields/columns for Post model

@@ -6,6 +6,7 @@
 ## User Story
 AS A developer who writes about tech
 I WANT a CMS-style blog site
+<<<<<<< HEAD
 SO THAT I can publish articles, blog posts, and my thoughts 
 and opinions
 
@@ -23,6 +24,15 @@ https://github.com/ColinNebula/colin-model-view-controller/tree/main
   * [License](#license)
   * [Credits](#credits)
 
+=======
+SO THAT I can publish articles, blog posts, and my thoughts and opinions
+## Project Github Repository
+
+## Table of Contents
+  - [Description](#description)
+  - [Installation](#installation)
+  - [Author](#author)
+>>>>>>> feature/comments
 
 ## Installation ( 2 Methods)
 * Download or clone the repository 

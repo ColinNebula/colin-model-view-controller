@@ -8,7 +8,7 @@ const routes = require('./controllers/');
 
 //Port used
 const app = express();
-const PORT = process.env.PORT || 3002
+const PORT = process.env.PORT || 3001
 
 // Express middleware
 app.use(express.json());

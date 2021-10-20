@@ -6,25 +6,6 @@
 ## User Story
 AS A developer who writes about tech
 I WANT a CMS-style blog site
-<<<<<<< HEAD
-SO THAT I can publish articles, blog posts, and my thoughts 
-and opinions
-
-## Project URL Heroku Website (Deployed Application)
-
-## Project Github Repository
-https://github.com/ColinNebula/colin-model-view-controller/tree/main
-
-## MarkUp
-![14-mvc-homework-demo-01](https://user-images.githubusercontent.com/57843842/136827119-dc9e2f63-d509-45b0-afb2-bc1986c4ed23.gif)
-
-## Table of Contents
-  * [Description](#description)
-  * [Installation](#installation)
-  * [License](#license)
-  * [Credits](#credits)
-
-=======
 SO THAT I can publish articles, blog posts, and my thoughts and opinions
 ## Project Github Repository
 
@@ -32,7 +13,6 @@ SO THAT I can publish articles, blog posts, and my thoughts and opinions
   - [Description](#description)
   - [Installation](#installation)
   - [Author](#author)
->>>>>>> feature/comments
 
 ## Installation ( 2 Methods)
 * Download or clone the repository 

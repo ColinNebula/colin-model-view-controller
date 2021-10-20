@@ -1,12 +1,15 @@
 const router = require('express').Router();
-const { Post, User, Vote } = require('../../models');
+// Import user, post, vote, comment
+const { Post, User, Vote, Comment} = require('../../models');
 const sequelize = require('../../config/connection');
 
 // get all users
 router.get('/', (req, res) => {
   console.log('======================');
   Post.findAll({
-    attributes: ['id', 
+    order: [['created_at', 'DESC']],
+    attributes: [
+    'id', 
     'post_url', 
     'title', 
     'created_at',
@@ -49,15 +52,7 @@ router.get('/:id', (req, res) => {
   ],
     include: [
       {
-        model: Comment,
-        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-        include: {
-          model: User,
-          attributes: ['username']
-        }
-      },
-      {
-        model: User,
+        model: User, Comment,
         attributes: ['username']
       }
     ]
@@ -75,6 +70,7 @@ router.get('/:id', (req, res) => {
     });
 });
 
+// Create a Post
 router.post('/', (req, res) => {
   Post.create({
     title: req.body.title,
@@ -88,37 +84,17 @@ router.post('/', (req, res) => {
     });
 });
 
-// PUT /api/posts/upvote
+// PUT Post
 router.put('/upvote', (req, res) => {
+  // custom static method created in models/Post.js
   Post.upvote(req.body, { Vote })
-  
-  Vote.create({
-    user_id: req.body.user_id,
-    post_id: req.body.post_id
-  }).then(() => {
-    // then find the post we just voted on
-    return Post.findOne({
-      where: {
-        id: req.body.post_id
-      },
-      attributes: [
-        'id',
-        'post_url',
-        'title',
-        'created_at',
-    
-        [
-          sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'),
-          'vote_count'
-        ]
-      ]
-    })
     .then(updatedPostData => res.json(updatedPostData))
     .catch(err => {
       console.log(err);
       res.status(400).json(err);
+    });
 });
-});
+
 // Update post
 router.put('/:id', (req, res) => {
   Post.update(
@@ -163,7 +139,6 @@ router.delete('/:id', (req, res) => {
       res.status(500).json(err);
     });
 });
-})
 
 
 module.exports = router;

@@ -10,7 +10,10 @@ class Post extends Model {
 class Post extends Model {
     static upvote(body, models) {
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> develop
 =======
 >>>>>>> develop
         return models.Vote.create({
@@ -34,8 +37,11 @@ class Post extends Model {
             });
         });
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> feature/post
+>>>>>>> develop
+=======
 >>>>>>> develop
     }
 }

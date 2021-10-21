@@ -4,6 +4,7 @@ const { Post, User, Comment, Vote } = require('../models');
 
 
 router.get('/', (req, res) => {
+    console.log(req.session);
     res.render('homepage', {
         id: 1,
         post_url: 'https://handlebarsjs.com/guide/',

@@ -4,22 +4,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Karla:400,700|Rubik:400,400i,700&display=swap" rel="stylesheet">
   <title>Back End Front Blog</title>
   <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 
 <body>
+    
+  </nav>
   <div class="wrapper">
-    <header>
+    <header  class="py-4 mb-3">
+      <div class="flex-row justify-space-between align-center container-fluid mx-auto">
+
+      </div>
       <h1>
-        <a href="/">Back End Front Blog</a>
+        <a class ="text-light bg-dark p-3 " href="/">Back End Front Blog</a>
       </h1>
       <nav>
         {{#if loggedIn}}
         <a href="/dashboard">dashboard</a>
         <button id="logout" class="btn-no-style">logout</button>
         {{else}}
-        <a href="/login">login</a>
+        <a class ="text-light bg-dark p-3 " href="/login">Login</a>
+        <a class ="text-light bg-dark p-3 " href="/dashboard">Dashboard</a>
+        <a class ="text-light bg-dark p-3 " href="/logout">logout</a>
         {{/if}}
       </nav>
     </header>

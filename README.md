@@ -7,16 +7,27 @@
 AS A developer who writes about tech
 I WANT a CMS-style blog site
 SO THAT I can publish articles, blog posts, and my thoughts and opinions
-## Project Github Repository
 
 ## Table of Contents
-  - [Description](#description)
-  - [Installation](#installation)
-  - [Author](#author)
+  * Type[Description](#description)
+  * [Installation](#installation)
+  * [Author](#author)
 
-## Installation ( 2 Methods)
+## Project URl
+
+## Project Github Repository
+https://github.com/ColinNebula/colin-model-view-controller/tree/main
+
+## Project Screenshot
+
+
+## Markup
+![14-mvc-homework-demo-01](https://user-images.githubusercontent.com/57843842/136827119-dc9e2f63-d509-45b0-afb2-bc1986c4ed23.gif)
+
+## Installation 
 * Download or clone the repository 
 * Run npm install
+* node seeds/index.js to seed
 * Type "npm start"
 
 ## License

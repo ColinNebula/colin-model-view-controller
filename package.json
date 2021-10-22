@@ -4,8 +4,9 @@
   "description": "AS A developer who writes about tech\r I WANT a CMS-style blog site\r SO THAT I can publish articles, blog posts, and my thoughts and opinions",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "test": "jest",
+    "start": "nodemon server.js",
+    "seeds": "node seeds/index.js"
   },
   "repository": {
     "type": "git",
@@ -24,8 +25,12 @@
     "express": "^4.17.1",
     "express-handlebars": "^5.3.4",
     "express-session": "^1.17.2",
+    "mongoose": "^6.0.12",
     "mysql2": "^2.3.0",
     "nodemon": "^2.0.13",
     "sequelize": "^6.6.5"
+  },
+  "devDependencies": {
+    "jest": "^27.3.1"
   }
 }

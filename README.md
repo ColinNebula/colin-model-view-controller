@@ -9,7 +9,7 @@ I WANT a CMS-style blog site
 SO THAT I can publish articles, blog posts, and my thoughts and opinions
 
 ## Table of Contents
-  * Type[Description](#description)
+  * [Description](#description)
   * [Installation](#installation)
   * [Author](#author)
 

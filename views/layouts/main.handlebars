@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Karla:400,700|Rubik:400,400i,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <title>Back End Front Blog</title>
+</head>
+
+<body>
+    
+  </nav>
+  <div class="wrapper">
+    <header  class="py-4 mb-3">
+      <div class="flex-row justify-space-between align-center container-fluid mx-auto">
+
+      </div>
+      <h1>
+        <a class ="text-light bg-dark p-3 " href="/">Back End Front Blog</a>
+      </h1>
+      <nav>
+        {{#if loggedIn}}
+        <a class ="text-light bg-dark p-3 " href="/dashboard">Dashboard</a>
+        <button id="logout" class="btn-no-style text-light bg-dark p-3">Logout</button>
+        {{else}}
+        <a class ="text-light bg-dark p-3 " href="/login">Login</a>
+        <a class ="text-light bg-dark p-3 " href="/dashboard">Dashboard</a>
+        <a class ="text-light bg-dark p-3 " href="/logout">Logout</a>
+        {{/if}}
+      </nav>
+    </header>
+    <main>
+      {{{ body }}}
+    </main>
+    
+  </div>
+
+  {{#if loggedIn}}
+  <script src="/javascript/logout.js"></script>
+  {{/if}}
+</body>
+
+</html>

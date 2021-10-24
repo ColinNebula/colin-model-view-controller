@@ -12,7 +12,9 @@ The Model View Controller is CMS-style blog site similar to a Wordpress site, wh
 AS A developer who writes about tech
 I WANT a CMS-style blog site
 SO THAT I can publish articles, blog posts, and my thoughts and opinions
-## Project URL
+
+## Project URL deployed to Heroku
+https://stark-mesa-23653.herokuapp.com/ deployed to Heroku
 
 ## Project Github Repository
 https://github.com/ColinNebula/colin-model-view-controller/tree/main

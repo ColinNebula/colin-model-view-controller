@@ -14,7 +14,7 @@ I WANT a CMS-style blog site
 SO THAT I can publish articles, blog posts, and my thoughts and opinions
 
 ## Project URL deployed to Heroku
-https://stark-mesa-23653.herokuapp.com/ deployed to Heroku
+https://protected-fjord-97128.herokuapp.com/
 
 ## Project Github Repository
 https://github.com/ColinNebula/colin-model-view-controller/tree/main

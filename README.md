@@ -36,7 +36,7 @@ https://github.com/ColinNebula/colin-model-view-controller/tree/main
 * email: cstoneman2@last.fm
 
 ## License
-This application is covered by [MIT](https://opensource.org/licenses/MIT) license.
+[![license](https://img.shields.io/badge/license-MIT-brightgreen)](https://shields.io)
 
 ## Author 
 Colin Nebula

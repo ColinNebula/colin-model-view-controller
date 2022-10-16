@@ -2,6 +2,7 @@
 
 ## Description
 The Model View Controller is CMS-style blog site similar to a Wordpress site, where developers can publish their blog posts and comment on other developers and also posts as well.
+Users can sign in and create, delete or comment on other users post.
 
 ## Table of Contents
   * [Description](#description)
@@ -29,7 +30,10 @@ https://github.com/ColinNebula/colin-model-view-controller/tree/main
 * Download or clone the repository 
 * node seeds/index.js to seed database
 * Run npm install
-* Type "npm start"
+* Type "npm start" to lunch the app
+* Login Example: 
+* User: iboddam2
+* email: cstoneman2@last.fm
 
 ## License
 This application is covered by [MIT](https://opensource.org/licenses/MIT) license.

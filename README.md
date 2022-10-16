@@ -1,4 +1,4 @@
-# colin-model-view-controller
+# Colin-Model-View-Controller
 
 ## Description
 The Model View Controller is CMS-style blog site similar to a Wordpress site, where developers can publish their blog posts and comment on other developers and also posts as well.

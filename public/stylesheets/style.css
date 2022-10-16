@@ -18,7 +18,7 @@ a {
 }
 
 a:hover {
-  color: #3486eb;
+  color: #eb3434;
 }
 
 button {
@@ -33,7 +33,7 @@ button {
 }
 
 button:hover {
-  background-color: #3486eb;
+  background-color: #eb9c34;
 }
 
 .post-list {
@@ -108,7 +108,7 @@ main {
   background: none;
   color: #3486eb;
 }
-
+s
 .delete-post-btn {
   background-color: #d41414;
 }
